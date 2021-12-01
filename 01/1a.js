@@ -1,4 +1,4 @@
-module.exports = function sonarSweep(numbers) {
+function sonarSweep(numbers) {
   let count = 0;
 
   for (let i = 1; i < numbers.length; i++) {
@@ -10,4 +10,6 @@ module.exports = function sonarSweep(numbers) {
   }
 
   return count;
-};
+}
+
+export default sonarSweep;

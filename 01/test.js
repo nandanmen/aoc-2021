@@ -1,5 +1,13 @@
-const assert = require("assert");
-const sonarSweep = require("./index");
+import * as fs from "fs/promises";
+import sonarSweep from "./1a.js";
 
-assert.equal(sonarSweep([199, 200, 208, 210, 200, 207, 240, 269, 260, 263]), 7);
-console.log(`All tests pass ✨`);
+const run = async () => {
+  let inputStr = await fs.readFile("./01/input.txt");
+  inputStr = inputStr.toString();
+
+  const input = inputStr.split("\n").map(Number);
+  const out = sonarSweep(input);
+  console.log(`Result: ${out}`);
+};
+
+run();

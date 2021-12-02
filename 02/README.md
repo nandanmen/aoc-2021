@@ -1,0 +1,4 @@
+- Iterate through each command, parse the command into [command, arg] pairs
+  - Simply follow the steps described in the puzzle to change depth/horizontal pos
+- For part 2, add aim to the state and simply update it according to the new instructions
+- Not much to say for this one

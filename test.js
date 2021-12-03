@@ -36,15 +36,22 @@ const run = async () => {
 
   if (firstAlgorithm) {
     console.log(`${number}a`);
-    console.log(` Example: ${firstAlgorithm(example)}`);
-    console.log(` Result: ${firstAlgorithm(input)}`);
+    console.log(` Example: ${print(firstAlgorithm(example))}`);
+    console.log(` Result: ${print(firstAlgorithm(input))}`);
   }
 
   if (secondAlgorithm) {
     console.log(`${number}b`);
-    console.log(` Example: ${secondAlgorithm(example)}`);
-    console.log(` Result: ${secondAlgorithm(input)}`);
+    console.log(` Example: ${print(secondAlgorithm(example))}`);
+    console.log(` Result: ${print(secondAlgorithm(input))}`);
   }
+};
+
+const print = (val) => {
+  if (typeof val === "object") {
+    return JSON.stringify(val);
+  }
+  return val;
 };
 
 run();

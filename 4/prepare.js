@@ -1,2 +1,1 @@
-export default (file) => file.trim().split(/?
-/);
+export default (file) => file.trim().split(/\r?\n/);

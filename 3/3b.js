@@ -1,4 +1,4 @@
-export default (report) => {
+export default (...report) => {
   const bitLength = report[0].length;
 
   let oxygenCandidates = report;

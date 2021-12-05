@@ -49,8 +49,8 @@ At a high level, the function will:
 
 ```ts
 function getWinningScore(numbers, boards) {
-  for (number of numbers) {
-    for (board of boards) {
+  for (const number of numbers) {
+    for (const board of boards) {
       board.mark(number);
       if (board.won()) {
         return board.score() * number;
@@ -80,11 +80,20 @@ class Board {
   }
 
   mark(number: number) {
-    this.marked.add(number)
+    // TODO
   }
 
   won(): boolean {
-    
+    // TODO
+  }
+
+  score(): number {
+    // TODO
   }
 }
 ```
+
+Improvements:
+
+- "Cache" the score by totalling all numbers on initialization and subtracting from the score on every mark
+  - This requires knowing what numbers are in the board when marking

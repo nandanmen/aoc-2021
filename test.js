@@ -35,19 +35,22 @@ const run = async () => {
 
   const prepare = await importDefault(`./${number}/prepare.js`);
 
-  const example = prepare(await readFile(`./${number}/example.txt`));
-  const input = prepare(await readFile(`./${number}/input.txt`));
+  const exampleArgs = prepare(await readFile(`./${number}/example.txt`));
+  const inputArgs = prepare(await readFile(`./${number}/input.txt`));
+
+  const example = Array.isArray(exampleArgs) ? exampleArgs : [exampleArgs];
+  const input = Array.isArray(inputArgs) ? inputArgs : [inputArgs];
 
   if (firstAlgorithm) {
     console.log(`${number}a`);
-    console.log(` Example: ${print(firstAlgorithm(example))}`);
-    console.log(` Result: ${print(firstAlgorithm(input))}`);
+    console.log(` Example: ${print(firstAlgorithm(...example))}`);
+    console.log(` Result: ${print(firstAlgorithm(...input))}`);
   }
 
   if (secondAlgorithm) {
     console.log(`${number}b`);
-    console.log(` Example: ${print(secondAlgorithm(example))}`);
-    console.log(` Result: ${print(secondAlgorithm(input))}`);
+    console.log(` Example: ${print(secondAlgorithm(...example))}`);
+    console.log(` Result: ${print(secondAlgorithm(...input))}`);
   }
 };
 

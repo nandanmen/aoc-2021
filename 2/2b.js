@@ -1,4 +1,4 @@
-export default function dive(commands) {
+export default function dive(...commands) {
   let depth = 0;
   let horizontalPos = 0;
   let aim = 0;

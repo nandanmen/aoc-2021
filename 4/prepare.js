@@ -1,4 +1,4 @@
-import { Board } from "./board";
+import { Board } from "./board.js";
 
 /**
  * @param {string} file
@@ -11,11 +11,20 @@ export default (file) => {
 
   let current = 1;
   while (current < lines.length) {
-    const line = lines[current];
-    if (!line.length) {
+    if (lines[current].length <= 0) {
       current++;
     } else {
-      boards.push(parseBoard());
+      const rows = [];
+      while (lines[current] && lines[current].length > 0) {
+        rows.push(
+          lines[current]
+            .split(" ")
+            .filter((numString) => numString.length > 0)
+            .map((numString) => Number(numString.trim()))
+        );
+        current++;
+      }
+      boards.push(new Board(rows));
     }
   }
 

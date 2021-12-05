@@ -1,4 +1,4 @@
-import { Board } from "./board";
+import { Board } from "./board.js";
 
 /**
  * @param {number[]} numbers

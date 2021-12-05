@@ -97,3 +97,14 @@ Improvements:
 
 - "Cache" the score by totalling all numbers on initialization and subtracting from the score on every mark
   - This requires knowing what numbers are in the board when marking
+
+## Part II
+
+For part II, we need to figure out which board will win last. This means we need to keep iterating through the numbers until either all boards have won, or we run out of numbers - whichever comes first.
+
+My first instinct is to keep track of the boards that won and only iterate through the boards that haven't won yet.
+
+1. When a board wins, add it to a list of "won" boards
+2. As we iterate through the numbers, only mark the number in boards that are still playing
+3. If there are no boards left, we break out of the loop
+4. Finally, we calculate the score of the board that was added last to the list of won boards

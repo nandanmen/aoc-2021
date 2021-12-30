@@ -56,7 +56,7 @@ const run = async () => {
 
 const print = (val) => {
   if (typeof val === "object") {
-    return JSON.stringify(val);
+    return JSON.stringify(val, null, 2);
   }
   return val;
 };

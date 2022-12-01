@@ -10,9 +10,11 @@ const importDefault = async (path) => {
 };
 
 const run = async () => {
-  const [problem] = process.argv.slice(2);
+  const [year, problem] = process.argv.slice(2);
   const [problemNumber] = problem.split(/[a|b]/);
   const number = Number(problemNumber);
+  const _year = Number(year);
+  const basePath = `./${_year}/${number}`;
 
   const runFirstPart = problem.endsWith("a");
   const runSecondPart = problem.endsWith("b");
@@ -21,22 +23,22 @@ const run = async () => {
   let secondAlgorithm;
 
   if (runFirstPart) {
-    firstAlgorithm = await importDefault(`./${number}/${number}a.js`);
+    firstAlgorithm = await importDefault(`${basePath}/${number}a.js`);
   }
 
   if (runSecondPart) {
-    secondAlgorithm = await importDefault(`./${number}/${number}b.js`);
+    secondAlgorithm = await importDefault(`${basePath}/${number}b.js`);
   }
 
   if (!runFirstPart && !runSecondPart) {
-    firstAlgorithm = await importDefault(`./${number}/${number}a.js`);
-    secondAlgorithm = await importDefault(`./${number}/${number}b.js`);
+    firstAlgorithm = await importDefault(`${basePath}/${number}a.js`);
+    secondAlgorithm = await importDefault(`${basePath}/${number}b.js`);
   }
 
-  const prepare = await importDefault(`./${number}/prepare.js`);
+  const prepare = await importDefault(`${basePath}/prepare.js`);
 
-  const exampleArgs = prepare(await readFile(`./${number}/example.txt`));
-  const inputArgs = prepare(await readFile(`./${number}/input.txt`));
+  const exampleArgs = prepare(await readFile(`${basePath}/example.txt`));
+  const inputArgs = prepare(await readFile(`${basePath}/input.txt`));
 
   const example = Array.isArray(exampleArgs) ? exampleArgs : [exampleArgs];
   const input = Array.isArray(inputArgs) ? inputArgs : [inputArgs];

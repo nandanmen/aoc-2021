@@ -1,6 +1,7 @@
 import * as fs from "fs";
 
-const day = Number(process.argv[2]);
+const year = Number(process.argv[2]);
+const day = Number(process.argv[3]);
 
 const files = {
   [`${day}a.js`]: `export default () => {}`,
@@ -11,7 +12,7 @@ const files = {
   "README.md": `# Day ${day}`,
 };
 
-fs.mkdirSync(String(day));
+fs.mkdirSync(`${year}/${day}`);
 for (const [path, contents] of Object.entries(files)) {
-  fs.promises.writeFile(`${day}/${path}`, contents);
+  fs.promises.writeFile(`${year}/${day}/${path}`, contents);
 }

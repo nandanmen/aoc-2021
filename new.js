@@ -8,7 +8,7 @@ const files = {
   [`${day}b.js`]: `export default () => {}`,
   "example.txt": ``,
   "input.txt": ``,
-  "prepare.js": `export default (file) => file.trim().split(/\\r?\\n/);`,
+  "prepare.js": `export default (file) => file.trim();`,
   "README.md": `# Day ${day}`,
 };
 

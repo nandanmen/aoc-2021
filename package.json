@@ -1,6 +1,7 @@
 {
   "type": "module",
   "scripts": {
-    "test": "node ./test.js"
+    "test": "node ./test.js",
+    "new": "node ./new.js"
   }
 }

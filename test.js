@@ -10,7 +10,7 @@ const importDefault = async (path) => {
 };
 
 const run = async () => {
-  const [year, problem] = process.argv.slice(2);
+  const [year, problem, exampleOnly] = process.argv.slice(2);
   const [problemNumber] = problem.split(/[a|b]/);
   const number = Number(problemNumber);
   const _year = Number(year);
@@ -46,13 +46,13 @@ const run = async () => {
   if (firstAlgorithm) {
     console.log(`${number}a`);
     console.log(` Example: ${print(firstAlgorithm(...example))}`);
-    console.log(` Result: ${print(firstAlgorithm(...input))}`);
+    !exampleOnly && console.log(` Result: ${print(firstAlgorithm(...input))}`);
   }
 
   if (secondAlgorithm) {
     console.log(`${number}b`);
     console.log(` Example: ${print(secondAlgorithm(...example))}`);
-    console.log(` Result: ${print(secondAlgorithm(...input))}`);
+    !exampleOnly && console.log(` Result: ${print(secondAlgorithm(...input))}`);
   }
 };
 

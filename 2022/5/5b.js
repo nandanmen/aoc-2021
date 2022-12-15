@@ -1,13 +1,5 @@
 import { strict as assert } from "node:assert";
 
-const range = (start, end) => {
-  const _range = [];
-  for (let i = start; i < end; i++) {
-    _range.push(i);
-  }
-  return _range;
-};
-
 /**
  * @param {string} text
  */
